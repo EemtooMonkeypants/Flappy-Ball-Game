@@ -29,12 +29,12 @@ def draw():
 def update(dt):
     uy = ball.velocity_y
     ball.velocity_y += GRAVITY*dt
-    ball.initial_y += (uy+ball.initial_y)*0.5*dt
+    ball.initial_y += (uy+ball.velocity_y)*0.5*dt
 
     if ball.initial_y > HEIGHT-ball.radius:
         ball.initial_y = HEIGHT-ball.radius
         ball.velocity_y = -ball.velocity_y*0.9
-        
+
     ball.initial_x += ball.velocity_x*dt
     if ball.initial_x > WIDTH-ball.radius or ball.initial_x < ball.radius:
         ball.velocity_x = -ball.velocity_x
